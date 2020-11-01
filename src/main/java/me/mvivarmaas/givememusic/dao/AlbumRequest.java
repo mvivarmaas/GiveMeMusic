@@ -7,12 +7,12 @@ import com.wrapper.spotify.requests.data.albums.GetAlbumRequest;
 /**
  * Use this class to get albums via the Spotify-Web-Api
  */
-public class GetAlbum {
+public class AlbumRequest {
     private String accessToken;;
     private SpotifyApi api;
     private String albumId;
 
-    public GetAlbum(String accessToken, String albumId) {
+    public AlbumRequest(String accessToken, String albumId) {
         this.albumId = albumId;
         this.accessToken = accessToken;
         api = new SpotifyApi.Builder()
@@ -23,7 +23,7 @@ public class GetAlbum {
 
     final GetAlbumRequest getAlbumRequest = api.getAlbum(albumId).build();
 
-    Album getAlbum_Sync() {
+    public Album getAlbum_Sync() {
         try {
             final Album album = getAlbumRequest.execute();
             return album;
